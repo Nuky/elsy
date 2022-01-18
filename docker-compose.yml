@@ -21,6 +21,7 @@ go: &go
   environment:
     - GOOS
     - GOARCH
+    - GIT_SSL_NO_VERIFY=1
   entrypoint: /bin/bash
     # /usr/local/go/bin/go
 
@@ -41,6 +42,7 @@ package:
   <<: *go
   environment:
     - GIT_TAG_NAME
+    - GO111MODULE=auto
   entrypoint: /opt/lifecycle/package
 
 test:
